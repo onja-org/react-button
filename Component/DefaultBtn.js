@@ -1,76 +1,20 @@
 import React from "react";
 
-function DefaultBn() {
+function DefaultBtn(props) {
+  let icon = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px"><path d="M0 0h24v24H0zm18.31 6l-2.76 5z" fill="none"/><path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4h-.01l-1.1 2-2.76 5H8.53l-.13-.27L6.16 6l-.95-2-.94-2H1v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.13 0-.25-.11-.25-.25z" fill="white"/></svg>
+  let startIcon = props.startIcon==="local_grocery_store" ? icon : '';
+  let endIcon = props.endIcon=== "local_grocery_store" ? icon : '';
   return (
     <div>
-      <div className="wrapper">
-        <p>{"<button />"}</p>
-        <button className="default">Default</button>
-      </div>
-      <div className="wrapper">
-        <p>{`<button variant="outline" />`}</p>
-        <button className={`variant="outline" && variantOutline`}>Default</button>
-      </div>
-      <div className="wrapper">
-        <p>{`<button variant="text" />`}</p>
-        <button className={`variant="text" && variantText`}>Default</button>
-      </div>
-      <div className="wrapper">
-        <p>{`<button disabledShadow />`}</p>
-        <button className={`disabledShadow && disabledShadow`}>Default</button>
-      </div>
-      <div className="wrapper">
-        <p>{`<button disabled />`}</p>
-        <button className={`disabled && disabled`}>Desabled</button>
-      </div>
-      <div className="container">
-        <div className="wrapper">
-          <p>{`<button startIcon="local_grocery_store" />`}</p>
-          <button className={`startIcon="local_grocery_store" && startIcon`}>Default</button>
-        </div>
-        <div className="wrapper">
-          <p>{`<button endIcon="local_grocery_store" />`}</p>
-          <button className={`endIcon="local_grocery_store" && endIcon`}>Default</button>
-        </div>
-      </div>
-      <div className="container">
-        <div className="wrapper">
-          <p>{`<button sise="sm" />`}</p>
-          <button className={`size="sm" && sm`}>Default</button>
-        </div>
-        <div className="wrapper">
-          <p>{`<button sise="md" />`}</p>
-          <button className={`size="md" && md`}>Default</button>
-        </div>
-        <div className="wrapper">
-          <p>{`<button sise="lg" />`}</p>
-          <button className={`size=lg && lg`}>Default</button>
-        </div>
-      </div>
-      <div className="container">
-        <div className="wrapper">
-          <p>{`<button default />`}</p>
-          <button className={`color="default" && defaultColor`}>Default</button>
-        </div>
-        <div className="wrapper">
-          <p>{`<button color="primary"/>`}</p>
-          <button className={`color="primary" && primary`}>primary</button>
-        </div>
-        <div className="wrapper">
-          <p>{`<button color="secondary" />`}</p>
-          <button className={`color="secondary" && secondary`}>secondary</button>
-        </div>
-        <div className="wrapper">
-          <p>{`<button color="danger" />`}</p>
-          <button className={`color="danger" && danger`}>Danger</button>
-        </div>
-      </div>
-      {/* <button className={`variant="text" && variantText`}>Default</button>
-        <button className={`variant="text" && variantText`}>Default</button>
-        <button className={`variant="text" && variantText`}>Default</button>
-        <button className={`variant="text" && variantText`}>Default</button> */}
+      <button className={`
+                    ${props.variant}
+                    ${props.color}
+                    ${props.disabled}
+                    ${props.disabledShadow}
+                    ${props.size}
+  `}>{startIcon} {props.children} {endIcon}</button>
     </div>
   )
 }
 
-export default DefaultBn;
+export default DefaultBtn;
